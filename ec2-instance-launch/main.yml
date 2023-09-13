@@ -1,0 +1,17 @@
+## Launch Basic EC@2 instacne in us-east-1 region.
+ - name: Anisble play
+   hosts: localhost
+   tasks: 
+   - name: launching AWS instance using Ansible 
+
+     ec2:
+       key_name: anisble
+       region: us-east-1
+       instance_type: t2.micro
+       image: ami-0f844a9675b22ea32
+       group: default
+       count: 2
+       vpc_subnet_id: subnet-0ecab2c81f1a8aa57
+       assign_public_ip: yes
+       instance_tags:
+         Name: ansible.demo
